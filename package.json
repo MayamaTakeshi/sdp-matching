@@ -1,6 +1,6 @@
 {
   "name": "sdp-matching",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "node.js module to permit to perform matching against SDP strings",
   "main": "index.js",
   "directories": {
@@ -19,7 +19,8 @@
     "description",
     "protocol",
     "match",
-    "matching"
+    "matching",
+    "jsonpath"
   ],
   "author": "MayamaTakeshi",
   "license": "ISC",
@@ -29,8 +30,7 @@
   "homepage": "https://github.com/MayamaTakeshi/sdp-matching#readme",
   "dependencies": {
     "data-matching": "^1.26.0",
-    "jsonpath": "^1.1.1",
-    "parsip": "^1.0.6"
+    "jsonpath": "^1.1.1"
   },
   "devDependencies": {
     "ava": "^5.1.1"

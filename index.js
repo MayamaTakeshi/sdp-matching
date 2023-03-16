@@ -1,13 +1,14 @@
 const data_matching = require('data-matching')
-const parsip = require('parsip')
 const jp = require('jsonpath')
-const _ = require('lodash')
+const parse = require('./sdp_parser.js')
 
 module.exports = (expected) => {
 	var expected2 = data_matching.matchify_strings(expected)
 	var f = (s, dict, throw_matching_error, path) => {
-		var received = parsip.getSDP(s)
-		return _.every(expected2, (val, key) => {
+		var received = parse(s)
+        var keys = Object.keys(expected2)
+		return keys.every(key => {
+            var val = expected[key]
             var item = jp.query(received, key)
 			if(val == data_matching.absent && item) {
 				if(throw_matching_error) {
