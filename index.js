@@ -1,6 +1,6 @@
 const data_matching = require('data-matching')
 const jp = require('jsonpath')
-const parse = require('./sdp_parser.js')
+const parse = require('sdp-parsing')
 
 module.exports = (expected) => {
 	var expected2 = data_matching.matchify_strings(expected)

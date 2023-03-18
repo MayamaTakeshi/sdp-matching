@@ -33,17 +33,17 @@ a=cmid:1`.replace(/\n/g, "\r\n")
                 address_type: m.collect('audio_address_type'),
                 address: '239.69.22.33/32'
               },
-              attrs: {
+              val_attrs: {
                 ptime: '1',
                 rtpmap: ['0 PCMU/8000/1', '18 G729/8000/1']
               },
             }],
 
         // checking a specific item value
-        '$.media[?(@.desc.type=="application")].attrs.connection': ['new'],
+        '$.media[?(@.desc.type=="application")].val_attrs.connection': ['new'],
 
         // Get MRCP channel
-        '$.media[?(@.desc.port=="8888")].attrs.channel': [m.collect('mrcp_channel')],
+        '$.media[?(@.desc.port=="8888")].val_attrs.channel': [m.collect('mrcp_channel')],
     })
 
     var store = {}
