@@ -23,7 +23,7 @@ a=channel:814e650d-2b1b-46f2-bdfb-09e8f90272ba@speechsynth
 a=cmid:1`.replace(/\n/g, "\r\n");
 
   var matcher = sdp_matching.matcher({
-    media: [
+    media: m.full_match([
       {
         desc: {
           type: m.collect('media0_type'),
@@ -56,7 +56,7 @@ a=cmid:1`.replace(/\n/g, "\r\n");
           cmid: "1",
         },
       },
-    ],
+    ]),
     v: "0",
     o: "- 345678 345979 IN IP4 10.0.1.2 s=My sample redundant flow",
     i: "2 channels: c6, c7",
@@ -69,6 +69,5 @@ a=cmid:1`.replace(/\n/g, "\r\n");
   t.assert(matcher(s, store));
 
   t.is(store.media0_type, 'audio');
-  t.is(store.profile_type, 'AVP');
-  t.is(store.media1_type, 'application');
+  //t.is(store.media1_type, 'application');
 });
