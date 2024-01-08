@@ -2,7 +2,7 @@ const sdp_matching = require('../index.js')
 const m = require('data-matching')
 const test = require('ava')
 
-test('match', t=> {
+test('jsonpath_matcher', t=> {
     var s = `v=0
 o=- 345678 345979 IN IP4 10.0.1.2 s=My sample redundant flow
 i=2 channels: c6, c7
@@ -19,7 +19,7 @@ a=connection:new
 a=channel:814e650d-2b1b-46f2-bdfb-09e8f90272ba@speechsynth
 a=cmid:1`.replace(/\n/g, "\r\n")
 
-    var matcher = sdp_matching({
+    var matcher = sdp_matching.jsonpath_matcher({
         // checking a full media item
         '$.media[?(@.desc.port=="5004")]': [{
               desc: {
