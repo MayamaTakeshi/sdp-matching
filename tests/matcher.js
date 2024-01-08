@@ -28,7 +28,7 @@ a=cmid:1`.replace(/\n/g, "\r\n");
         desc: {
           type: m.collect('media0_type'),
           port: "5004",
-          protocol: "RTP/AVP",
+          protocol: "RTP/!{profile_type}",
           formats: ["0", "18"],
         },
         conn: {
@@ -69,5 +69,6 @@ a=cmid:1`.replace(/\n/g, "\r\n");
   t.assert(matcher(s, store));
 
   t.is(store.media0_type, 'audio');
+  t.is(store.profile_type, 'AVP');
   t.is(store.media1_type, 'application');
 });

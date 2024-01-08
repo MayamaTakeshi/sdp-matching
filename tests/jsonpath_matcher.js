@@ -25,7 +25,7 @@ a=cmid:1`.replace(/\n/g, "\r\n")
               desc: {
                 type: 'audio',
                 port: '5004',
-                protocol: 'RTP/AVP',
+                protocol: 'RTP/!{profile_type}',
                 formats: ['0', '18'],
               },
               conn: {
@@ -51,5 +51,6 @@ a=cmid:1`.replace(/\n/g, "\r\n")
     t.assert(matcher(s, store))
 
     t.is(store.audio_address_type, 'IP4')
+    t.is(store.profile_type, 'AVP')
     t.is(store.mrcp_channel, '814e650d-2b1b-46f2-bdfb-09e8f90272ba@speechsynth')
 })
